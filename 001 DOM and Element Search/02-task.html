@@ -37,6 +37,12 @@
         }
         return color;
     }
+    let ramaColor = getRandomColor();
+    let ramka = document.querySelectorAll("p");
+    for (const item of ramka){
+        item.style.border = "1px solid";
+        item.style.borderColor = ramaColor;
+    }
 </script>
 
 </html>
