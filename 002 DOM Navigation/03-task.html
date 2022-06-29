@@ -63,6 +63,11 @@
             <td>125</td>
             <td>100</td>
         </tr>
+        <tr>
+            <th>Итого:</th>
+            <th id="res1"></th>
+            <th id="res2"></th>
+        </tr>
     </table>
 
     <div id="result"></div>
@@ -75,6 +80,32 @@
         В div с id result выведите сообщение "Отдел 1 сделал больше продаж" или "Отдел 2 сделал больше продаж" на основе раннее вычисленных значений в строке "Итого".
         Используйте любые методы, которые были рассмотрены на в прошлых уроках.
         */
+        
+        let sum1 = 0;
+        let sum2 = 0;
+
+        let result1 = document.querySelectorAll("td:nth-child(2)");
+        for (const td of result1){
+            sum1 += Number(td.textContent);
+        }
+        let result2 = document.querySelectorAll("td:last-child");
+        for (const td of result2){
+            sum2 += Number(td.textContent);
+        }
+        
+        let otdel1 = document.querySelector("#res1");
+        otdel1.innerHTML = sum1;
+        let otdel2 = document.querySelector("#res2");
+        otdel2.innerHTML = sum2;
+
+        let moreSales = document.querySelector("#result");
+        if (sum1>sum2){
+            moreSales.innerHTML = "Отдел 1 сделал больше продаж";
+        }
+        else if(sum1<sum2){
+            moreSales.innerHTML = "Отдел 2 сделал больше продаж";
+        }
+        
     </script>
 </body>
 </html>

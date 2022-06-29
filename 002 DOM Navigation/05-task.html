@@ -486,14 +486,17 @@
                     favoriteFruit: 'apple'
                 }
             ];
+            
+            let usersEmails = document.querySelector("#emailAddressesOutput");
+            let frendlyPerson = document.querySelector("#greatesFriendsCountOutput");
+            let maxBalanceCompany = document.querySelector("#greatestBalanceCompanyOutput");
+            let minBalanceCompany = document.querySelector("#lowestBalanceCompanyOutput");
 
             function showAllEmails() {
-                console.log("Электронные адреса пользователей:")
-                users.forEach(user => console.log(user.email));
+                users.forEach(user => usersEmails.innerHTML += user.email + "<br />");
             }
 
             function showHigestFriendCount() {
-                console.log("Пользователи с наибольшим количеством друзей");
 
                 let max = Number.MIN_VALUE;
 
@@ -504,9 +507,9 @@
 
                 users
                     .filter(user => user.friends.length == max)
-                    .forEach(user => console.log(user.name.first + " " + user.name.last));
+                    .forEach(user => frendlyPerson.innerHTML += user.name.first + " " + user.name.last + "<br />");
             }
-
+            
             function showMinMaxBalance() {
                 let minBalance = Number.MAX_VALUE;
                 let maxBalance = Number.MIN_VALUE;
@@ -520,20 +523,19 @@
                     }
                 });
 
-                console.log("Компании пользователей с наибольшим балансом:")
                 users
                     .filter(user => user.balance == maxBalance)
-                    .forEach(user => console.log(user.company));
+                    .forEach(user => maxBalanceCompany.innerHTML = user.company);
 
-                console.log("Компании пользователей с наименьшим балансом:")
                 users
                     .filter(user => user.balance == minBalance)
-                    .forEach(user => console.log(user.company));
+                    .forEach(user => minBalanceCompany.innerHTML = user.company);
             }
 
             showAllEmails();
             showHigestFriendCount();
             showMinMaxBalance();
+
         </script>
     </body>
 
