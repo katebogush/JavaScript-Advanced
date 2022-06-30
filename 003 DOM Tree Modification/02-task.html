@@ -15,10 +15,10 @@
 
 <body>
     Рабочие дни
-    <div></div>
+    <div id="workdays"></div>
 
     Выходные дни
-    <div></div>
+    <div id="restdays"></div>
 
     <script>
        /*
@@ -36,6 +36,23 @@
         { name: "Thursday", isWorkDay: true },
         { name: "Friday", isWorkDay: true },
         { name: "Saturday", isWorkDay: false }];
+
+        let workPlace = document.querySelector("#workdays");
+        let restPlace = document.querySelector("#restdays");
+
+        for (let i=0; i<days.length; i++){
+            let result = document.createElement("p");
+            if(days[i].isWorkDay === true){
+               result.textContent = days[i].name;
+               workPlace.append(result);
+            }
+            else if(days[i].isWorkDay === false){
+                result.textContent = days[i].name;
+                restPlace.append(result);
+            }
+        }
+
+
     </script>
 </body>
 
