@@ -28,7 +28,15 @@
             lastName: "Doe",
             age: "25",
         }
-
+        let dataBind = document.querySelectorAll("[data-bind]");
+        for (const data of dataBind){
+            let value = data.getAttribute("data-bind");
+            for (var key in user){
+                if(key == value){
+                   data.textContent = user[key];
+                }
+            }
+        }
     </script>
 </body>
 
