@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task 5</title>
     <style>
-        body {
+        /* body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
@@ -29,7 +29,7 @@
 
         .user-card ul {
             list-style: none;
-        }
+        } */
     </style>
 </head>
 
@@ -493,7 +493,7 @@
                 ul.insertAdjacentHTML("beforeend", `<li>${friend.name}</li>`);
             }
             if (user.friends.length < 5) {
-                div.style.border ="2px solid red";
+                div.classList.add("frendly");
             }
 
             div.append(ul);
@@ -504,6 +504,41 @@
             let card = createUserCard(user);
             document.body.append(card);
         });
+
+        let userCard = document.querySelectorAll(".user-card");
+        for(const user of userCard){
+           user.style.backgroundColor = "blanchedalmond";
+           user.style.padding = "20px";
+           user.style.margin = "10px";
+           user.style.border = "burlywood";
+           user.style.display = "inline-block";
+           user.style.verticalAlign="top";
+           user.style.minHeight= "400px";
+           user.style.minWidth= "250px";
+        }
+
+        let body = document.querySelector("body");
+        body.style.fontFamily = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+
+        let uls = document.querySelectorAll(".user-card ul");
+        for (const ul of uls){
+            ul.style.padding= "0";
+            ul.style.margin= "0";
+             ul.style.listStyle= "none";
+        }
+
+        let ps = document.querySelectorAll(".user-card p");
+        for (const p of ps){
+            p.style.padding= "0";
+            p.style.margin= "0";
+        }
+        
+        let frendly = document.querySelectorAll(".frendly");
+        for (const item of frendly){
+            item.style.border ="2px solid red";
+        }
+
+
     </script>
 </body>
 
