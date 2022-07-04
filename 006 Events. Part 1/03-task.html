@@ -40,27 +40,76 @@
         input2 сделайте, в случае ошибки, #input2Error видимым.
         */
         let input1 = document.querySelector("#input1");
-        let input3 = document.querySelector("#input2");
+        let input2 = document.querySelector("#input2");
 
         let addBtn = document.querySelector("#add-btn");
         let remBtn = document.querySelector("#rem-btn");
         let mulBtn = document.querySelector("#mul-btn");
         let divBtn = document.querySelector("#div-btn");
+        let resetBtn = document.querySelector("#reset-btn");
+
+        let input1Error = document.querySelector("#input1Error");
+        let input2Error = document.querySelector("#input2Error");
 
         addBtn.addEventListener("click", function () {
-            alert(Number(input1.value) + Number(input2.value));
+            if (!input1.value){
+            input1.style.border = "1px solid red";
+            input1Error.style.display = "inline";
+            }
+            else if (!input2.value){
+            input2.style.border = "1px solid red";
+            input2Error.style.display = "inline"
+            }
+            else {
+                alert(Number(input1.value) + Number(input2.value))
+            };
         });
 
         remBtn.addEventListener("click", function () {
-            alert(input1.value - input2.value);
+            if (!input1.value){
+            input1.style.border = "1px solid red";
+            input1Error.style.display = "inline";
+            }
+            else if (!input2.value){
+            input2.style.border = "1px solid red";
+            input2Error.style.display = "inline"
+            }
+            else {
+                alert(input1.value - input2.value);
+            };
         });
 
         mulBtn.addEventListener("click", function () {
-            alert(input1.value * input2.value);
+            if (!input1.value){
+            input1.style.border = "1px solid red";
+            input1Error.style.display = "inline";
+            }
+            else if (!input2.value){
+            input2.style.border = "1px solid red";
+            input2Error.style.display = "inline"
+            }
+            else {
+                alert(input1.value * input2.value);
+            };
         });
 
         divBtn.addEventListener("click", function () {
-            alert(input1.value / input2.value);
+            if (!input1.value){
+            input1.style.border = "1px solid red";
+            input1Error.style.display = "inline";
+            }
+            else if (!input2.value){
+            input2.style.border = "1px solid red";
+            input2Error.style.display = "inline"
+            }
+            else {
+                alert(input1.value / input2.value);
+            };
+        });
+
+        resetBtn.addEventListener("click", function (){
+            input1.value = 0;
+            input2.value = 0;
         });
     </script>
 </body>

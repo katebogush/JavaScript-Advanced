@@ -98,12 +98,21 @@
             let p = document.createElement("p");
             p.innerText = text;
 
+            let button = document.createElement("button");
+            button.textContent = "Удалить";
+
             div.append(input);
             div.append(p);
+            div.append(button);
+
+            button.addEventListener("click", function(){
+            div.remove();
+            });
 
             return div;
         }
-
+         
+        
         function changeTaskState() {
             if (this.checked) {
                 this.parentElement.classList.add("completed");

@@ -17,6 +17,24 @@
         Обработчик должен выводить на экран сообщение Hello world.
         Добавьте обработчик тремя разными способами.
         */
+    //Способ 1
+    //<button id="testBtn" onclick = "alert('Hello world')">Test Button</button>
+
+    // Способ 2
+    // let testBtn = document.querySelector("#testBtn");
+    // testBtn.onclick = testClick;
+    // function testClick(){
+    //     alert('Hello world');
+    // }
+
+    // Способ 3
+    let testBtn = document.querySelector("#testBtn");
+    testBtn.addEventListener("click", testClick );
+    function testClick(){
+         alert('Hello world');
+    }
+
+
     </script>
 </body>
 

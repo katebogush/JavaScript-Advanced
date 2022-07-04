@@ -36,19 +36,38 @@
         // если a > b возвращать значение больше 0
         // если a == b возвращать 0
 
-        itemsArray.sort(function (a, b) {
+        // itemsArray.sort(function (a, b) {
+        //     if (a.textContent < b.textContent)
+        //         return -1;
+        //     if (a.textContent > b.textContent)
+        //         return 1;
+        //     return 0;
+        // });
+
+        // добавление элементов в алфавитном порядке
+        // так как элементы уже есть в DOM дереве, то при добавлении элемент удаляется со своей предыдущей позиции
+        // itemsArray.forEach(item => {
+        //     list.append(item);
+        // });
+
+        let button = document.createElement("button");
+        let body = document.querySelector("body");
+        body.append(button);
+        button.textContent = "Нажмите для сортировки";
+
+        button.addEventListener("click", function(){
+            itemsArray.sort(function (a, b) {
             if (a.textContent < b.textContent)
                 return -1;
             if (a.textContent > b.textContent)
                 return 1;
             return 0;
         });
-
-        // добавление элементов в алфавитном порядке
-        // так как элементы уже есть в DOM дереве, то при добавлении элемент удаляется со своей предыдущей позиции
         itemsArray.forEach(item => {
             list.append(item);
         });
+        })
+
 
 
     </script>

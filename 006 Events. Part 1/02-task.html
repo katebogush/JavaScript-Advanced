@@ -9,6 +9,14 @@
 </head>
 
 <body>
+    Введите радиус цилиндра:
+        <input id="input1" type ="text"></input><br />
+    Введите высоту цилиндра:
+       <input id="input2" type ="text"></input><br />
+       <button>Вычислить обьем цилиндра</button>
+       
+
+        
     <script>
         /*
         Задание:
@@ -17,6 +25,26 @@
         Разместите на странице два поля ввода - первое для радиуса цилиндра, второе для высоты цилиндра.
         Объем цилиндра выведите в тело страницы.
         */
+
+        input1 = document.querySelector("#input1");
+        input2 = document.querySelector("#input2");
+        btn = document.querySelector("button");
+        body = document.querySelector("body");
+
+        btn.addEventListener ("click", cylinderVolume);
+
+        function cylinderVolume (){
+            if (input1.value && input2.value){
+              let volume = 3.14 * Number(input1.value) * Number(input1.value) * Number(input2.value);
+              let result = document.createElement("p");
+              result.textContent = "Обьем цилинда равен:  " + volume;
+              body.append(result);
+            }
+            else {
+              alert ("Введите значения цилиндра");
+            } 
+        }
+        
     </script>
 </body>
 
