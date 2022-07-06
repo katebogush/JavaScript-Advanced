@@ -25,6 +25,23 @@
         при нажатии на клавишу R фон div#colorOutput становился красным, 
         а при нажатии на клавишу B фон div#colorOutput становился синим.
         */
+
+        div = document.querySelector("#colorOutput");
+
+        document.addEventListener("keydown", function(e){
+            if ( e.code == 'KeyG'){
+             div.style.backgroundColor = "green" ;
+            }
+            else if (e.code == "KeyR"){
+                div.style.backgroundColor = "red";
+            }
+            else if (e.code == 'KeyB'){
+                div.style.backgroundColor = "blue";
+            }
+            else {
+                div.style.backgroundColor = "white";
+            }
+        });
     </script>
 </body>
 

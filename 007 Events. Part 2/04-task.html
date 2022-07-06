@@ -25,23 +25,39 @@
         Внесите изменения в сценарий. Сделайте чтобы при зажатой клавише Shift и нажатии стрелок на 
         клавиатуре элемент по странице двигался в два раза быстрей, чем если просто нажимать на стрелки.
         */
-        let div = document.querySelector("#element");
-        let distance = 10;
+         let div = document.querySelector("#element");
+         let distance = 100;
+
+        // document.addEventListener("keydown", function (e) {
+        //     switch (e.code) {
+        //         case "ArrowLeft" :
+        //             moveLeft(div, distance);
+        //             break;
+        //         case "ArrowRight":
+        //             moveRight(div, distance);
+        //             break;
+        //         case "ArrowUp":
+        //             moveUp(div, distance);
+        //             break;
+        //         case "ArrowDown":
+        //             moveDown(div, distance);
+        //             break;
+        //     }
+        // });
+        
 
         document.addEventListener("keydown", function (e) {
-            switch (e.code) {
-                case "ArrowLeft":
-                    moveLeft(div, distance);
-                    break;
-                case "ArrowRight":
-                    moveRight(div, distance);
-                    break;
-                case "ArrowUp":
-                    moveUp(div, distance);
-                    break;
-                case "ArrowDown":
-                    moveDown(div, distance);
-                    break;
+            if (e.code == "ArrowLeft" && e.shiftKey){
+                moveLeft(div, distance)
+            }
+            if (e.code == "ArrowRight" && e.shiftKey){
+                moveRight(div, distance)
+            }
+            if (e.code == "ArrowUp" && e.shiftKey){
+                moveUp(div, distance)
+            }
+            if (e.code == "ArrowDown" && e.shiftKey){
+                moveDown(div, distance)
             }
         });
 

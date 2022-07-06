@@ -154,15 +154,19 @@
         ];
 
         let uslerList = document.querySelector("#userList");
+        let output = document.querySelector("#output");
 
         for (let index = 0; index < users.length; index++) {
             const currentUser = users[index];
             let li = document.createElement("li");
             li.textContent = currentUser.name.first + " " + currentUser.name.last;
-            li.addEventListener("mouseenter", mouseEnterHandler);
+            li.addEventListener("mouseenter", function () {
+            output.innerHTML = "Возраст : " + users[index].age + "<br/>" + "Баланс : " + users[index].balance + "<br/>" + "Компания : " + users[index].company + "<br/>" + "email : " + users[index].email
+            });
             li.dataset.userNumber = index;
             uslerList.append(li);
         }
+
     </script>
 </body>
 
