@@ -161,7 +161,7 @@
             let li = document.createElement("li");
             li.textContent = currentUser.name.first + " " + currentUser.name.last;
             li.addEventListener("mouseenter", function () {
-            output.innerHTML = "Возраст : " + users[index].age + "<br/>" + "Баланс : " + users[index].balance + "<br/>" + "Компания : " + users[index].company + "<br/>" + "email : " + users[index].email
+            output.innerHTML = "Возраст : " + users[index].age + "<br/>" + "Баланс : "+ users[index].balance + "<br/>" + "Компания : " + users[index].company + "<br/>" + "email : " + users[index].email
             });
             li.dataset.userNumber = index;
             uslerList.append(li);

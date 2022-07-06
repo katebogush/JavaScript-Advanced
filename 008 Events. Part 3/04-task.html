@@ -31,21 +31,38 @@
         let mulBtn = document.querySelector("#mul-btn");
         let divBtn = document.querySelector("#div-btn");
 
-        addBtn.addEventListener("click", function () {
-            alert(Number(input1.value) + Number(input2.value));
-        });
+        // addBtn.addEventListener("click", function () {
+        //     alert(Number(input1.value) + Number(input2.value));
+        // });
 
-        remBtn.addEventListener("click", function () {
-            alert(input1.value - input2.value);
-        });
+        // remBtn.addEventListener("click", function () {
+        //     alert(input1.value - input2.value);
+        // });
 
-        mulBtn.addEventListener("click", function () {
-            alert(input1.value * input2.value);
-        });
+        // mulBtn.addEventListener("click", function () {
+        //     alert(input1.value * input2.value);
+        // });
 
-        divBtn.addEventListener("click", function () {
-            alert(input1.value / input2.value);
-        });
+        // divBtn.addEventListener("click", function () {
+        //     alert(input1.value / input2.value);
+        // });
+
+        document.querySelector("body").addEventListener("click",function(e){
+            if(e.target.id == "add-btn"){
+                alert(Number(input1.value) + Number(input2.value));
+            };
+            if(e.target.id == "rem-btn"){
+                alert(Number(input1.value) - Number(input2.value));
+            };
+            if(e.target.id == "mul-btn"){
+                alert(Number(input1.value) * Number(input2.value));
+            };
+            if(e.target.id == "div-btn"){
+                alert(Number(input1.value) / Number(input2.value));
+            }
+        })
+
+        
     </script>
 </body>
 
