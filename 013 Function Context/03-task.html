@@ -10,6 +10,7 @@
 
 <body>
     <script>
+
         /*
         Задание:
         Найдите и исправьте проблему в методах getGreaterThanThreshold и getLessThanThreshold
@@ -26,14 +27,14 @@
 
             // Возвращает все значения из массива values, которые больше, чем значение переменной threshold
             getGreaterThanThreshold() {
-                return this.#values.filter(function (v) {
+                return this.#values.filter((v)=> {
                     return v > this.#threshold;
                 })
             }
 
             // возвращает все значения из массива values, которые меньше, чем значение переменной threshold 
             getLessThanThreshold() {
-                return this.#values.filter(function (v) {
+                return this.#values.filter((v) => {
                     return v < this.#threshold;
                 })
             }

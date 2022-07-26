@@ -54,6 +54,7 @@
         let containerWidth = parseInt(getComputedStyle(document.querySelector("#container")).width);
 
         let direction = "right";
+        let timerId;
 
         function moveLeft() {
             element.style.left = getLeft(element) - 3 + "px";
@@ -83,8 +84,34 @@
             }
         }
 
+
+        let time = 20;
+
+
         document.querySelector("#startBtn").addEventListener("click", function () {
-            setInterval(move, 40);
+            if (!timerId){
+            timerId = setInterval(move, 40);
+            }
+        });
+        document.querySelector("#stopBtn").addEventListener("click", function (){
+            if (timerId){
+                clearInterval(timerId);
+                timerId = null;
+            }
+        });
+         document.querySelector("#increaseBtn").addEventListener("click", function () {
+             if (timerId) {
+                clearInterval(timerId);
+                timerId = setInterval(move, time)
+             }
+                time = time -5;
+        });
+         document.querySelector("#decreaseBtn").addEventListener("click", function () {
+            if(timerId){
+                clearInterval(timerId);
+                timerId = setInterval(move, time)
+            }
+               time = time + 20;
         });
     </script>
 </body>

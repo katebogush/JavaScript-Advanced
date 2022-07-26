@@ -9,6 +9,9 @@
 </head>
 
 <body>
+       <input type="text" placeholder="Введите число">
+        <button>Начать игру</button>
+        <p></p>
     <script>
         /*
         Задание:
@@ -31,6 +34,45 @@
         Пользователь: 56
         Сценарий: Правильно! Загаданное значение 56. Вы угадали с 4й попытки за 10 сек.
         */
+
+    let input = document.querySelector("input");
+    let button = document.querySelector("button");
+    let p = document.querySelector("p");
+    let points= 0;
+    let time = 0;
+    let timerId = null;
+
+    const randomValue = Math.floor(Math.random() * 101);
+
+
+    button.addEventListener("click", function(){
+        if (!timerId){
+            timerId = setInterval(() => {
+                time++;
+            }, 1000);
+        }
+        if(input.value){
+            points++;
+            if (input.value == randomValue){
+                p.innerHTML = `Вы угадали с ${points} попытки за ${time}сек. Загаданное число ${input.value}`;
+                if(timerId){
+                    clearInterval(timerId);
+                    timerId = null;
+                }
+            }
+            else if (input.value > randomValue){
+                p.innerHTML = `Я загадал число меньше чем  ${input.value}`;
+            }
+            else if (input.value < randomValue){
+                p.innerHTML = `Я загадал число больше чем  ${input.value}`;
+            }
+
+        }
+        else {
+            alert ("Введите число от 0 до 100");
+        }
+    })
+
     </script>
 </body>
 

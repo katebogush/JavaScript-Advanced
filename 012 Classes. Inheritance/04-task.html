@@ -31,6 +31,7 @@
         <div>
             <div class="bg" style="background-image: url('{{imagePath}}');"></div>
             <p>{{price}}$</p>
+            <p>{{discount}}</p>
         </div>
     </template>
 
@@ -100,7 +101,10 @@
             }
 
             add(item) {
-                this.items.push(item);
+                if(item instanceof CatalogItem){
+                this.items.push(item)
+            }
+                else alert ("Данный метод принимает только классы производные от CatalogItem");
             }
 
             show() {
@@ -110,15 +114,23 @@
             }
         }
 
+        class ProductWithDiscount extends Product {
+            discount;
+
+            constructor (imageaPath, price, discount){
+                super(imageaPath, price);
+                this.discount = this.price - (this.price * discount/100)+ "$";
+                }
+        }
+
         let catalog = new Catalog("#catalog");
 
         catalog.add(new Product("images/img1.jpg", 35.55));
         catalog.add(new Product("images/img2.jpg", 25.25));
         catalog.add(new Advertisement("images/banner1.jpg", "https://itvdn.com/ru/catalog"));
         catalog.add(new Product("images/img3.jpg", 14.55));
-        catalog.add(new Product("images/img4.jpg", 65.55));
+        catalog.add(new ProductWithDiscount("images/img4.jpg", 65.55, 20));
         catalog.add(new Advertisement("images/banner2.jpg", "https://itvdn.comru/ru/specialities"));
-
         catalog.show();
 
     </script>

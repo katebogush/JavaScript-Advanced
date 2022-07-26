@@ -33,6 +33,7 @@
             model;
 
             constructor(model, maxCargo) {
+                super();
                 this.model = model;
                 this.maxCargo = maxCargo;
             }
@@ -51,7 +52,7 @@
         let v1 = new Car("Mazda");
         v1.move();
 
-        let v2 = new Truck();
+        let v2 = new Truck("KAMAZ",2000);
         v2.loadCargo(1500);
         v2.move();
     </script>

@@ -141,7 +141,7 @@
                 this.div.classList.add("task");
 
                 let input = document.createElement("input");
-                input.addEventListener("click", this.changeState);
+                input.addEventListener("click", () => this.changeState());
                 input.type = "checkbox";
 
                 let p = document.createElement("p");
