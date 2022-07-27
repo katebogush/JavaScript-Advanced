@@ -21,32 +21,57 @@
         ключевое солово class
         */
 
-        class Numbers {
-            #values;
-            #threshold;
+        // class Numbers {
+        //     #values;
+        //     #threshold;
 
-            constructor(threshold, values) {
-                this.#values = values;
-                this.#threshold = threshold;
+        //     constructor(threshold, values) {
+        //         this.#values = values;
+        //         this.#threshold = threshold;
+        //     }
+
+        //     // Возвращает все значения из массива values, которые больше, чем значение переменной threshold
+        //     getGreaterThanThreshold() {
+        //         return this.#values.filter(v => v > this.#threshold);
+        //     }
+
+        //     // возвращает все значения из массива values, которые меньше, чем значение переменной threshold 
+        //     getLessThanThreshold() {
+        //         return this.#values.filter(v => v < this.#threshold);
+        //     }
+        // }
+
+        //let numbers = (50, [10, 20, 23, 11, 5, 6, 90, 33, 45, 67]);
+        // let gt = numbers.getGreaterThanThreshold();
+        // let lt = numbers.getLessThanThreshold();
+
+        // console.log(gt);
+        // console.log(lt);
+
+        let numbers = (function (){
+            let threshold, values;
+
+            return {
+                getGreaterThanThreshold: function (){
+                    return values.filter(v => v > threshold);;
+                },
+                getLessThanThreshold: function (){
+                    return values.filter(v => v < threshold);
+                },
+                set: function (val, array){
+                    threshold = val;
+                    values = array;
+                },
             }
+        }());
+           
+        numbers.set(50, [10, 20, 23, 11, 5, 6, 90, 33, 45, 67]);
+        console.log(numbers.getGreaterThanThreshold());
+        console.log(numbers.getLessThanThreshold());
 
-            // Возвращает все значения из массива values, которые больше, чем значение переменной threshold
-            getGreaterThanThreshold() {
-                return this.#values.filter(v => v > this.#threshold);
-            }
 
-            // возвращает все значения из массива values, которые меньше, чем значение переменной threshold 
-            getLessThanThreshold() {
-                return this.#values.filter(v => v < this.#threshold);
-            }
-        }
 
-        let numbers = new Numbers(50, [10, 20, 23, 11, 5, 6, 90, 33, 45, 67]);
-        let gt = numbers.getGreaterThanThreshold();
-        let lt = numbers.getLessThanThreshold();
 
-        console.log(gt);
-        console.log(lt);
     </script>
 </body>
 
