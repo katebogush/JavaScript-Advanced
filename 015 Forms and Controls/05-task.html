@@ -84,6 +84,8 @@
             <input type="number" name="age" id="age">
         </div>
         <input type="button" value="Save" id="saveButton">
+        <input type="reset" value="Очистить форму" id="resetButton">
+        <input type="button" value="Удалить" id="deleteButton">
     </form>
     <script>
         /*
@@ -277,6 +279,17 @@
         saveButton.addEventListener("click", function () {
             formService.saveForm();
         });
+        
+        document.querySelector("#deleteButton").addEventListener("click", function(){
+            let form = document.forms[0];
+            for ( i=0; i< form.elements.length; i++){
+                if (form.elements[i].type != "button" && form.elements[i].type != "reset"){
+                    form.elements[i].value = "";
+                }
+            }
+            document.querySelector("#userList li.selected").remove();
+        })
+
     </script>
 </body>
 

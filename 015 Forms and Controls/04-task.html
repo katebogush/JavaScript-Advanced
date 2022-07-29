@@ -275,7 +275,10 @@
         });
 
         saveButton.addEventListener("click", function () {
+            let result = confirm('Вы действительно хотите сохранить изменения?');
+            if (result){ 
             formService.saveForm();
+            }
         });
 
     </script>
