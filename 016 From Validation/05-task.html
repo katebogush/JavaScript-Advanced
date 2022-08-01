@@ -54,7 +54,7 @@
         </div>
         <div class="form-group">
             <label>Номер кредитной карты</label>
-            <input type="text" name="creditCard">
+            <input type="text" name="creditCard" data-val="true" data-error-label="creditCardErrorLabel" data-pattern="\\d{4}">
             <span class="error" id="creditCardErrorLabel">Ошибка</span>
         </div>
         <div class="form-group">
@@ -149,6 +149,7 @@
             isValid: function (element) {
                 let message = "Введенное значение не соответствует шаблону";
                 let regex = new RegExp(element.dataset.pattern);
+                
                 return validators.validate(element, message, () => regex.test(element.value));
             }
         };

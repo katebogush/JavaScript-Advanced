@@ -28,6 +28,7 @@
         input:invalid {
             border: 1px solid red;
         }
+
     </style>
 </head>
 
@@ -89,6 +90,15 @@
         значение совпадает с запрещенным, выводите сообщение об этом рядом с полем ввода.
         Проверку выполняйте на событие input
         */
+
+        form.emailInput.addEventListener("input", function(){
+            if (form.emailInput.value == "admin@example.com" || form.emailInput.value == "superuser@example.com" || form.emailInput.value == "user@example.com"){
+                form.emailInput.setCustomValidity("Введите другой email адрес");
+            }
+            else {
+                form.emailInput.setCustomValidity("");
+            }
+        })
     </script>
 </body>
 
