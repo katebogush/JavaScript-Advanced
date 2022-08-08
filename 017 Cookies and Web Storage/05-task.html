@@ -83,10 +83,12 @@
         Задача, добавьте возможность удалять отдельные задачи в списке. Изменения должны сохраняться в localStorage
         */
 
+
         class Task {
             constructor(text) {
                 this.text = text;
                 this.isDone = false;
+                this.id = Math.floor(Math.random()*1000);
             }
         }
 
@@ -104,6 +106,12 @@
             add(task) {
                 this.tasks.push(task);
                 this.save();
+            },
+
+            delete(taskID) {
+              let newTasks =this.tasks.filter((task)=> task.id !== taskID);
+              this.tasks = newTasks;
+              this.save();
             },
 
             save() {
@@ -171,16 +179,29 @@
 
                 let p = document.createElement("p");
                 p.innerText = this.task.text;
+                p.className = "task-value";
+
+                let button = document.createElement("button");
+                button.innerHTML= "delete";
+                button.className = "delete-button";
 
                 this.div.append(input);
                 this.div.append(p);
+                this.div.append(button);
 
                 if (this.task.isDone) {
                     this.div.classList.add("completed");
                     input.checked = true;
                 }
                 element.append(this.div);
+                button.addEventListener("click", ()=> {
+                    this.div.remove();
+                    dataService.delete(this.task.id);
+                })
             }
+            // removeItem(){
+            //   document.
+            // };
 
             changeState(element) {
                 this.task.isDone = !this.task.isDone;
@@ -232,6 +253,49 @@
         function showNotCompletedHandler() {
             tasksListView.drawNotCompleted();
         }
+        
+    
+
+
+
+
+        //let pTaskList = document.querySelectorAll(".task-value");
+        // for (const p of pTaskList ){
+        //     console.log(p.textContent);
+        //     //let localTasks = JSON.parse(localStorage.getItem("tasks"));
+
+        //     // let newlocalTasks = localTasks.filter(function(item){
+        //     // return item.text != 
+        // }
+        //console.log(pTaskList);
+        
+    // function removeItem (){
+    //     let deleteButton = document.querySelectorAll(".delete-button");
+        
+    //     for (button of deleteButton){
+    //         button.addEventListener("click", function(e){
+    //         e.target.parentElement.remove();
+    //     })
+    //     } 
+    //     let pTaskList = document.querySelectorAll(".task-value");
+    //     let localTasks = JSON.parse(localStorage.getItem("tasks"));
+
+    //     for(let i=0; i<pTaskList.length; i++){
+    //         for (let j=0; j<localTasks.length; j++){
+    //             if(pTaskList[i].textContent != localTasks[i].text){
+    //                 localTasks[i].text = "";
+    //             }
+    //         }
+    //     }
+
+    //     let newLocalTasks = localTasks.filter(task){}
+
+        //console.log(pTaskList[0].textContent);
+        //console.log(localTasks[0].text);
+    //}
+
+
+
     </script>
 </body>
 

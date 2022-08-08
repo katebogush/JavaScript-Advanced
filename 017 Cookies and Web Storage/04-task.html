@@ -194,6 +194,31 @@
                 email: 'newman.wynn@visalia.name'
             }
         ];
+        let firstNameValue = localStorage.getItem("firstName");
+        if(firstNameValue){
+        document.querySelector("#firstName").value = firstNameValue;
+        };
+        let lastNameValue = localStorage.getItem("lastName");
+        if(lastNameValue){
+        document.querySelector("#lastName").value = lastNameValue;
+        };
+        let companyNameValue = localStorage.getItem("companyName");
+        if(companyNameValue){
+        document.querySelector("#companyName").value = companyNameValue;
+        };
+        let balanceValue = localStorage.getItem("balance");
+        if(balanceValue){
+        document.querySelector("#balance").value = balanceValue;
+        };
+        let emailValue = localStorage.getItem("email");
+        if(emailValue){
+        document.querySelector("#email").value = emailValue;
+        };
+        let ageValue = localStorage.getItem("age");
+        if(ageValue){
+        document.querySelector("#age").value = ageValue;
+        };
+
 
         // класс для вывода информации в UL
         class ListService {
@@ -295,6 +320,12 @@
         document.forms[0].addEventListener("submit", function (e) {
             formService.saveForm();
             e.preventDefault();
+            localStorage.setItem("firstName", document.querySelector("#firstName").value);
+            localStorage.setItem("lastName", document.querySelector("#lastName").value);
+            localStorage.setItem("companyName", document.querySelector("#companyName").value);
+            localStorage.setItem("balance", document.querySelector("#balance").value);
+            localStorage.setItem("email", document.querySelector("#email").value);
+            localStorage.setItem("age", document.querySelector("#age").value);
         });
 
         // удаляем и очищаем форму
@@ -302,6 +333,7 @@
             listService.deleteSelectedItem();
             formService.resetForm();
         });
+
     </script>
 </body>
 

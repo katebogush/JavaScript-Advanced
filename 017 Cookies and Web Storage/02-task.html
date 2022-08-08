@@ -16,6 +16,30 @@
         Сделайте так чтобы значение, введенное в поле ввода на данной странице, сохранялось при каждом изменении.
         Когда пользователь повторно зайдет на эту страницу, поле ввода должно содержать последнее введенное значение.
         */
+        let textarea = document.querySelector("textarea");
+        document.querySelector("textarea").addEventListener("change", function(){
+            document.cookie = `text = ${textarea.value}`;
+            console.log(document.cookie);
+        });
+        
+        function getCookie (name){
+            let cookie = document.cookie;
+            let pos = cookie.indexOf(name + "=");
+            if(pos != -1){
+                let start = pos + name.lenght + 1;
+                let end = cookie.indexOf(";", start);
+                if(end == -1){
+                    end = cookie.length;
+                }
+                let value = cookie.substring(start, end);
+                return value;
+            }
+        }
+
+         let cookieValue = getCookie("text").split('=')[1];
+         console.log('XXX', cookieValue);
+         textarea.textContent = cookieValue;
+
     </script>
 </body>
 

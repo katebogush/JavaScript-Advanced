@@ -16,6 +16,12 @@
         */
         class Rect {
             constructor(width, height) {
+                if(!width) {
+                throw new Error("Не задана ширина")
+            }
+                if(!height) {
+                throw new Error("Не задана высота")
+            }
                 this.width = width;
                 this.height = height;
             }

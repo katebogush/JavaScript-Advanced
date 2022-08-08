@@ -11,7 +11,7 @@
 <body>
     <form>
         <input type="radio" name="color" value="#ffd800" /> Orange
-        <input type="radio" name="color" value="#5ade54" /> Green
+        <input type="radio" name="color" value="#5ade54" /> Green 
         <input id="saveButton" type="button" value="Сохранить" />
     </form>
 
@@ -21,12 +21,38 @@
             Добавьте возможность сохранить выбранный цвет страницы в cookies сроком на 1 неделю.
             Добавьте восстановление выбранного цвета из cookies, если они есть, после загрузки документа.
         */
+
+         
+
        
         document.querySelector("#saveButton").addEventListener("click", function () {
             const form = document.forms[0];
             let selectedColor = form.color.value;
             document.body.style.backgroundColor = selectedColor;
+            document.cookie = `color = ${selectedColor}; max-age = 604800`
         });
+
+        function getCookie (name){
+            let cookie = document.cookie;
+            let pos = cookie.indexOf(name + "=");
+            if(pos != -1){
+                let start = pos + name.lenght + 1;
+                let end = cookie.indexOf(";", start);
+                if(end == -1){
+                    end = cookie.length;
+                }
+                let value = cookie.substring(start, end);
+                return value;
+            }
+        }
+        let cookieColor = getCookie("color");
+        
+        if(cookieColor.length > 0){
+            let color = cookieColor.split('=')[1];
+            document.body.style.backgroundColor = color; 
+        }
+
+
     </script>
 </body>
 

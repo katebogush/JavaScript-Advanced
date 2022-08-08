@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 01</title>
+</head>
+
+<body>
+     
+    <input type="text" id="taskInput">
+    <script>
+
+
+        let data = {
+            numbers :[],
+            add: function(value) {
+                this.numbers.push(value)
+            },
+            remove: function(value){
+                let newNumbers = this.numbers.filter(function(number){
+                   return number !== value;
+                })
+                this.numbers = newNumbers;
+            },
+            removeAll: function(){
+                this.numbers.splice(0, this.numbers.length);
+            }
+        };
+        
+        data.add(1);
+        data.add(3);
+        data.add(5);
+        data.removeAll();
+        console.log(data.numbers);
+
+
+        let input = document.querySelector("#taskInput");
+        
+        
+        input.addEventListener("keydown", function (e){
+            if(e.key === "Enter" && e.target.value.length !=0 ){
+                console.log(e.target.value); 
+            }
+
+        })
+        
+    </script>
+</body>
+
+</html>

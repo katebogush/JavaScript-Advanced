@@ -16,6 +16,15 @@
             width: 75px;
             display: inline-block;
         }
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        td, th {
+            padding: 8px;
+        }
     </style>
 </head>
 
@@ -46,6 +55,11 @@
         <div class="form-group">
             <input type="submit" value="Чтение">
         </div>
+        <button id ="showAll">Показать все</button>
+        <button id="clear">Очистить localStorage</button>
+        <table id="localStorrageValues">
+
+        </table>
     </form>
 
     <script>
@@ -76,6 +90,28 @@
             let value = localStorage.getItem(key); 
             alert(value);
         });
+
+        document.querySelector("#showAll").addEventListener("click", function(){
+           for (let i=0; i<localStorage.length; i++){
+               let key = localStorage.key(i);
+
+               let table = document.querySelector("#localStorrageValues");
+               let tr = document.createElement("tr");
+               table.append(tr);
+
+               let td1 = document.createElement("td");
+               td1.textContent = key;
+               tr.append(td1);
+
+               let td2 = document.createElement("td");
+               td2.textContent = localStorage.getItem(key);
+               tr.append(td2);
+           }
+        })
+
+        document.querySelector("#clear").addEventListener("click", function(){
+            localStorage.clear();
+        })
     </script>
 </body>
 

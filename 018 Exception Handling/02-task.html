@@ -16,6 +16,12 @@
         */
 
         function sum(a, b) {
+            if(!a) {
+                throw new Error("Не задан параметр: а")
+            }
+            if(!b) {
+                throw new Error("Не задан параметр: b")
+            }
             return a + b;
         }
 
