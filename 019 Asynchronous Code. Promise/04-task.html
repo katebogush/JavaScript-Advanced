@@ -24,6 +24,18 @@
                 setTimeout(() => resolve("downloaded data"), random);
             });
         }
+
+        document.querySelector("button").addEventListener("click", function (){
+          let promises =[
+          download(),
+          download(),
+          download(),
+          download(),
+          download(),
+          ]
+          Promise.all(promises)
+          .then(result => alert("Все файлы скачаны"))
+        })
     </script>
 </body>
 

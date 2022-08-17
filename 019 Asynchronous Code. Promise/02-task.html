@@ -23,10 +23,15 @@
         */
 
         function asyncOperation() {
-            setTimeout(function () {
-                let result = Math.floor(Math.random() * 5001);
-            }, 2000)
+            return new Promise (function(resolve, reject){
+            let result = Math.floor(Math.random() * 5001);
+            setTimeout(() => resolve(result), 2000)
+        })
         }
+        document.querySelector("button").addEventListener("click", function(){
+            asyncOperation()
+            .then (result => alert(result))
+        })
     </script>
 </body>
 

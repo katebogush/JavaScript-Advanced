@@ -35,7 +35,9 @@
                 })
                 .then(image => {
                     document.body.append(image);
-                });
+                })
+                .catch(error => alert("Ошибка загрузки картинки")
+                )
 
         });
 
